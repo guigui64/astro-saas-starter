@@ -1,0 +1,30 @@
+---
+import { HeaderActions } from "@/components/HeaderActions.tsx";
+
+const user = Astro.locals.user;
+const isLoggedIn = !!user;
+const avatarUrl = user?.avatar;
+const userInitials = user?.name
+  .split(" ")
+  .map((name) => name[0])
+  .join("")
+  .toUpperCase();
+---
+
+<header class="flex items-center gap-4 py-4">
+  <div class="flex items-center gap-4 px-4">
+    <a class="flex items-center gap-2" href="/">
+      <span class="text-lg font-semibold">
+        {import.meta.env.APP_NAME}
+      </span>
+    </a>
+  </div>
+  <div class="ml-auto flex items-center gap-4 px-4">
+    <HeaderActions
+      client:load
+      isLoggedIn={isLoggedIn}
+      avatarUrl={avatarUrl}
+      userInitials={userInitials}
+    />
+  </div>
+</header>

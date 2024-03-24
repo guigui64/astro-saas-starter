@@ -1,0 +1,10 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { LoginForm } from "@/components/LoginForm.tsx";
+---
+
+<Layout title=`Login to ${import.meta.env.APP_NAME}`>
+	<main class="min-h-screen flex justify-center items-center">
+		<LoginForm />
+	</main>
+</Layout>
